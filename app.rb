@@ -25,7 +25,9 @@ end
 
 post '/attack' do
   p params
-  @attack_style = params[:Submit]
+  @player_1_name = session['player_1_name']
+  @player_2_name = session['player_2_name']
+  @attack_style = params[:attack_style]
   erb(:attack)
 end
 
