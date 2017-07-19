@@ -8,4 +8,12 @@ class Player
     @hp = hp
   end
 
+  def attack(player, strength)
+      player.reduce_hp(strength)
+  end
+
+  def reduce_hp(hp)
+    @hp -= hp
+  end
+
 end

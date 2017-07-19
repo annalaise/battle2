@@ -6,6 +6,8 @@ class Battle < Sinatra::Base
 
 enable :sessions
 
+$attack_styles = {"Ask obvious question!"=>10, "Think!"=>-10, "Daydream!"=>10, "Turn up late!"=>20, "Search for answer on Google... but make a typo and end up on an site with some random capybara animal videos on it, then put hand up!"=>30, "Not submit daily feedback!"=>20, "Walk out of stand up!"=>100 }
+
 get '/' do
   erb(:index)
 end
@@ -25,6 +27,8 @@ end
 post '/attack' do
   p params
   @attack_style = params[:attack_style]
+  @attack_strength = $attack_styles[@attack_style]
+  $player_1.attack($player_2, @attack_strength)
   erb(:attack)
 end
 
