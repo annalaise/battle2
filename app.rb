@@ -24,6 +24,8 @@ get '/play' do
 end
 
 post '/attack' do
+  p params
+  @attack_style = params[:Submit]
   erb(:attack)
 end
 
